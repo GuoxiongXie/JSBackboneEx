@@ -4,7 +4,9 @@
 		<script type="application/javascript" src="./scripts/jquery-2.0.3.js"></script>
 		<script type="application/javascript" src="./scripts/underscore.js"></script>
 		<script type="application/javascript" src="./scripts/backbone.js"></script>
+		
 		<script type="application/javascript" src="./models/Message.js"></script>	<!-- Message should comes before Inbox,cuz inbox uses messages -->
+		<script type="application/javascript" src="./models/msgCollection.js"></script>
 		<script type="application/javascript" src="./models/Inbox.js"></script>
 		
 	</head>
@@ -26,11 +28,12 @@
 					var inbox = json;
 					console.log(inbox);
 
-					var myInbox = new Inbox({
-						username : json.username
-					});
+					var myInbox = new Inbox(json);
 					
-					var myMsg = myInbox.get('msg')[0];	//msg is an array
+					var myMsg = myInbox.get('msg');
+					var firstMessage = myMsg.at(0);	//at is a method for collection
+					
+					console.log(myMsg.getUnreadMessageCount());
 					
 					console.log(myInbox.get('username'));
 					console.log(myMsg.get('subject'));
