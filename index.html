@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<title>Backbone tutorial</title>
+		<script type="application/javascript" src="./scripts/jquery-2.0.3.js"></script>
+		<script type="application/javascript" src="./scripts/underscore.js"></script>
+		<script type="application/javascript" src="./scripts/backbone.js"></script>
+		<script type="application/javascript" src="./models/Message.js"></script>	<!-- Message should comes before Inbox,cuz inbox uses messages -->
+		<script type="application/javascript" src="./models/Inbox.js"></script>
+		
+	</head>
+	<body>
+		<h3>Hello World!</h3>
+		
+		<script type="application/javascript">
+			$(document).ready(function() {
+
+				var jsonRequest = $.ajax({
+					url : "./jsonFile.json",
+					dataType : "json",
+					error : function(a, b, c) {	//on errors run this fxn, if no error, don't run it
+						console.log(c);
+					}
+				});
+
+				$.when(jsonRequest).done(function(json) {	//json is the obj return from ajax call
+					var inbox = json;
+					console.log(inbox);
+
+					var myInbox = new Inbox({
+						username : json.username
+					});
+					
+					var myMsg = myInbox.get('msg')[0];
+					
+					console.log(myInbox.get('username'));
+					console.log(myMsg.get('subject'));
+				});
+
+			});
+		</script>
+	</body>
+</html>

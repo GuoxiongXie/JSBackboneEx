@@ -1,0 +1,1 @@
+This is an exercise project using Javascript, Backbone.js, and Node.js.
