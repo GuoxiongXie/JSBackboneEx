@@ -9,7 +9,7 @@ var Inbox = Backbone.Model.extend({
 	initialize : function (myJsonData) {
 		this.set('username', 'Felix'),
 		this.set('msg', [new Message({
-			subject : "Mahalo",
+			subject : "hi there",
 			sender : "Oz",
 			content : "bla bla bla"
 		})])
