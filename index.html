@@ -30,12 +30,12 @@
 					var myInbox = new Inbox(json);	//if we declare Inbox object like this, it will just return the corresponding field when u do .get('msg')
 					
 					var myMsgCollection = myInbox.get('msg');	//myMsg is a collection of Message models; get is a method for backbone Model
-					var firstMessage = myMsgCollection.at(0);	//at is a method for collection
+					var firstMsgModel = myMsgCollection.at(0);	//at is a method for collection
 					
-					console.log(myMsgCollection.getUnreadMessageCount());
+					console.log("The number of unread messages is " + myMsgCollection.getUnreadMessageCount());
 					
-					console.log(myInbox.get('username'));
-					console.log(myMsgCollection.get('subject'));
+					console.log("Username: " + myInbox.get('username'));
+					console.log("Subject of first message: " + firstMsgModel.get('subject'));
 				});
 
 			});

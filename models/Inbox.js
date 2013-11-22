@@ -20,6 +20,6 @@ var Inbox = Backbone.Model.extend({
 			//msgArray.push(new Message(myJsonData.msg[i]));	//works like append
 		//}
 		
-		this.set('msg', new MsgCollection(myJsonData.msg));	//instead of building the msg array here, we can build collection object
+		this.set('msg', new MsgCollection(myJsonData.msg));	//instead of building the msg array here, we can build collection object; myJsonData.msg is an arr
 	}
 });

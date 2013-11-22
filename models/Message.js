@@ -3,6 +3,6 @@ var Message = Backbone.Model.extend({
 		subject : "Mahalo",
 		sender : "Oz",
 		content : "bla bla bla",
-		read : false
+		unread : true
 	}	//if you wanna add more method, use comma to seperate it
 });
