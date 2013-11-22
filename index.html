@@ -25,18 +25,17 @@
 				});
 
 				$.when(jsonRequest).done(function(json) {	//json is the obj return from ajax call
-					var inbox = json;
-					console.log(inbox);
+					console.log(json);
 
-					var myInbox = new Inbox(json);
+					var myInbox = new Inbox(json);	//if we declare Inbox object like this, it will just return the corresponding field when u do .get('msg')
 					
-					var myMsg = myInbox.get('msg');
-					var firstMessage = myMsg.at(0);	//at is a method for collection
+					var myMsgCollection = myInbox.get('msg');	//myMsg is a collection of Message models; get is a method for backbone Model
+					var firstMessage = myMsgCollection.at(0);	//at is a method for collection
 					
-					console.log(myMsg.getUnreadMessageCount());
+					console.log(myMsgCollection.getUnreadMessageCount());
 					
 					console.log(myInbox.get('username'));
-					console.log(myMsg.get('subject'));
+					console.log(myMsgCollection.get('subject'));
 				});
 
 			});
